@@ -1,26 +1,9 @@
-<div *ngIf="selectedHero">
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div>id: {{ selectedHero.id }}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name" />
-  </div>
-</div>
-
-<!-- <ng-template [ngIf]="selectedHero">
-  <h2>{{ selectedHero.name | uppercase }} Details</h2>
-  <div>id: {{ selectedHero.id }}</div>
-  <div>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name" />
-  </div>
-</ng-template> -->
+<h2>My Heroes</h2>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <button
       [class.selected]="hero === selectedHero"
-      [class.selected1]="hero === selectedHero"
       type="button"
       (click)="onSelect(hero)"
     >
@@ -29,25 +12,8 @@
   </li>
 </ul>
 
-<!-- <ul class="heroes">
-<li *ngFor="let hero of heroes">
-  <button
-    [class]="{
-      selected: hero === selectedHero,
-      selected1: hero === selectedHero
-    }"
-    type="button"
-    (click)="onSelect(hero)"
-  >
-    <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-  </button>
-</li>
-</ul> -->
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
 
-<!-- <ul class="heroes">
-  <ng-template ngFor let-hero [ngForOf]="heroes" let-i="index">
-    <li>
-      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
-    </li>
-  </ng-template>
-</ul> -->
+<div *ngIf="selectedHero">
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+</div>
